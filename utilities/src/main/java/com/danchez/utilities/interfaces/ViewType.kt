@@ -1,6 +1,6 @@
 package com.danchez.utilities.interfaces
 
-import com.danchez.profile.util.ViewTypes
+import com.danchez.utilities.ViewTypes
 
 interface ViewType {
 
