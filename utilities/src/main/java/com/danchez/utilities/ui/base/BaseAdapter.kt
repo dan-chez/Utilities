@@ -18,7 +18,7 @@ abstract class BaseAdapter<T : BaseDTO> : RecyclerView.Adapter<RecyclerView.View
         delegateAdapters.get(getItemViewType(position))?.onBindViewHolder(holder, dataList[position], position)
     }
 
-    override fun getItemViewType(position: Int): Int = dataList[position].getViewType().type
+    override fun getItemViewType(position: Int): Int = dataList[position].getViewType().type()
 
     override fun getItemCount() = dataList.size
 
