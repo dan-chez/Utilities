@@ -1,4 +1,4 @@
-package com.danchez.utilities
+package com.danchez.utilitiesExample
 
 import org.junit.Test
 

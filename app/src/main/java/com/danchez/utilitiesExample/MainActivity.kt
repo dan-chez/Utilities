@@ -1,4 +1,4 @@
-package com.danchez.utilities
+package com.danchez.utilitiesExample
 
 import android.os.Bundle
 import com.danchez.utilities.ui.base.BaseActivity
