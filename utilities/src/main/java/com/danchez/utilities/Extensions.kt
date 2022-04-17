@@ -49,27 +49,18 @@ fun Date.getDateWithFirstMonthDay(): String {
 }
 
 /**
- * Long to format date
+ * Long to format date in String
  */
-fun Long.toTime(time: Long, format: String = DD_MM_YYYY_dash): String {
-    val date = Date(time)
+fun Long.toStringTime(format: String = DD_MM_YYYY_dash): String {
+    val date = Date(this)
     return SimpleDateFormat(format, Locale.getDefault()).format(date)
 }
 
 /**
  * Inflate fragments view
  */
-fun ViewGroup.inflateView(layoutId: Int, attachToRoot: Boolean = false): View {
+fun ViewGroup.inflateView(layoutId: Int, attachToRoot: Boolean = false, context: Context): View {
     return LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
-}
-
-/**
- * Get date with the given values
- */
-fun Date.getDateWithValues(year: Int, month: Int, date: Int, hour: Int = 0, minute: Int = 0): Date {
-    val c = Calendar.getInstance()
-    c.set(year, month, date, hour, minute)
-    return c.time
 }
 
 /**
