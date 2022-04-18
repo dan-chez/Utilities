@@ -1,17 +1,16 @@
-## 1
-name: Test and deploy
+name: Android CI
+on: [push]
 
-## Actions that will be executed when you push code currently none
-on:
-  push:
-
-## 2
 jobs:
-  ## 3
-  unit_tests:
-    runs-on: [ubuntu-latest]
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Unit tests
-        run: ./gradlew test
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Unit Test
+        run: ./gradlew testDebugUnitTest
