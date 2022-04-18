@@ -25,5 +25,14 @@ fun getMonthsBetweenDates(initialDate: Calendar = Calendar.getInstance(), finalD
         initialDate.add(Calendar.MONTH, 1)
         ret.add(initialDate.time)
     }
-    return ret
+    return ret.subList(0, ret.size - 1)
+}
+
+/**
+ * Get date with the given values
+ */
+fun getDateWithValues(year: Int, month: Int, date: Int, hour: Int = 0, minute: Int = 0): Date {
+    val c = Calendar.getInstance()
+    c.set(year, month, date, hour, minute)
+    return c.time
 }
