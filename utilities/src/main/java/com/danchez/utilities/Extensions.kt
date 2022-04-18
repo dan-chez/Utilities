@@ -59,7 +59,7 @@ fun Long.toStringTime(format: String = DD_MM_YYYY_dash): String {
 /**
  * Inflate fragments view
  */
-fun ViewGroup.inflateView(layoutId: Int, attachToRoot: Boolean = false, context: Context): View {
+fun ViewGroup.inflateView(layoutId: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 }
 
