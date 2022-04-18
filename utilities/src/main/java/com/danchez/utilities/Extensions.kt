@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.pm.PackageInfoCompat
 import com.google.android.material.textfield.TextInputLayout
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -76,4 +77,25 @@ fun String.toCurrencyFormat(): String {
  */
 fun String.getSpannedText(): Spanned {
     return Html.fromHtml(this, Html.FROM_HTML_MODE_COMPACT)
+}
+
+/**
+ * Get VersionName from [Context]
+ */
+fun Context.getVersionName(): String {
+    return this.packageManager.getPackageInfo(this.packageName, 0).versionName
+}
+
+/**
+ * Get VersionCode from [Context]
+ */
+fun Context.getVersionCode(): String {
+    return PackageInfoCompat.getLongVersionCode(this.packageManager.getPackageInfo(this.packageName, 0)).toString()
+}
+
+/**
+ * Capitalizes the first letter of this [String] and lowercases the rest of this [String]
+ */
+fun String.upperCaseFirstLetter(): String {
+    return this.substring(0, 1).uppercase() + this.substring(1).lowercase()
 }
