@@ -1,5 +1,6 @@
 package com.danchez.utilities
 
+import com.danchez.utilities.extensions.validateInput
 import com.google.android.material.textfield.TextInputLayout
 import java.util.*
 
@@ -32,7 +33,7 @@ fun getMonthsBetweenDates(initialDate: Calendar = Calendar.getInstance(), finalD
  * Get date with the given values
  */
 fun getDateWithValues(year: Int, month: Int, date: Int, hour: Int = 0, minute: Int = 0): Date {
-    val c = Calendar.getInstance()
-    c.set(year, month, date, hour, minute)
-    return c.time
+    val calendar = Calendar.getInstance()
+    calendar.set(year, month, date, hour, minute)
+    return calendar.time
 }

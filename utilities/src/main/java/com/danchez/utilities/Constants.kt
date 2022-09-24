@@ -1,6 +1,8 @@
 package com.danchez.utilities
 
-
+/**
+ * Dates format
+ */
 const val DD_MM_YYYY_slash = "dd/MM/yyyy"
 const val DD_MM_YYYY_dash = "dd-MM-yyyy"
 const val YYYY_MM_DD_slash = "yyyy/MM/dd"

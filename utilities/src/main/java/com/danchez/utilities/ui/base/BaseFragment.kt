@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.danchez.utilities.extensions.EMPTY
 
 abstract class BaseFragment<VB : ViewBinding>(private val bindingInflater: (inflater: LayoutInflater) -> VB) : Fragment() {
 
@@ -26,7 +27,7 @@ abstract class BaseFragment<VB : ViewBinding>(private val bindingInflater: (infl
         _binding = null
     }
 
-    protected fun displaySimpleToastMessage(message: String = "", duration: Int = Toast.LENGTH_LONG) {
+    protected fun displaySimpleToastMessage(message: String = String.EMPTY, duration: Int = Toast.LENGTH_LONG) {
         Toast.makeText(context, message, duration).show()
     }
 }
