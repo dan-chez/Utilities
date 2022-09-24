@@ -6,6 +6,7 @@ import android.text.Spanned
 import androidx.core.content.pm.PackageInfoCompat
 import com.danchez.utilities.DD_MM_YYYY_dash
 import com.danchez.utilities.DD_MM_YYYY_slash
+import com.danchez.utilities.decimalFormatSymbols
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,7 +20,7 @@ val String.Companion.SPACE: String get() = " "
  * Transform a String to currency format
  */
 fun String.toCurrencyFormat(): String {
-    val formatter = DecimalFormat("###,###,##0")
+    val formatter = DecimalFormat("###,###.00", decimalFormatSymbols())
     return formatter.format(this.toDouble())
 }
 
@@ -58,7 +59,12 @@ fun String.upperCaseEachWord(): String {
     val capBuffer = StringBuffer()
     val capMatcher: Matcher = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(this)
     while (capMatcher.find()) {
-        capMatcher.appendReplacement(capBuffer, (capMatcher.group(1)?.uppercase(Locale.getDefault()) ?: String.EMPTY) + (capMatcher.group(2)?.lowercase(Locale.getDefault()) ?: String.EMPTY))
+        capMatcher.appendReplacement(
+            capBuffer,
+            (capMatcher.group(1)?.uppercase(Locale.getDefault())
+                ?: String.EMPTY) + (capMatcher.group(2)?.lowercase(Locale.getDefault())
+                ?: String.EMPTY)
+        )
     }
     return capMatcher.appendTail(capBuffer).toString()
 }
@@ -67,7 +73,7 @@ fun String.upperCaseEachWord(): String {
  * Actual date to string format. Default value = [DD_MM_YYYY_slash]
  */
 fun Date.toSimpleString(format: String = DD_MM_YYYY_slash): String {
-    return SimpleDateFormat(format, Locale("es", "ES")).format(this)
+    return SimpleDateFormat(format, Locale.getDefault()).format(this)
 }
 
 /**

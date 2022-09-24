@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import com.danchez.utilities.R
 import com.google.android.material.textfield.TextInputLayout
 
 /**
  * Validate TextInputLayout input if it is empty, set the error value and return a boolean value
  */
-fun TextInputLayout.validateInput(errorText: String): Boolean {
+fun TextInputLayout.validateInput(errorText: String = context.getString(R.string.default_error_input_empty)): Boolean {
     return if (this.editText?.text.toString().isEmpty()) {
         this.error = errorText
         false

@@ -2,7 +2,11 @@ package com.danchez.utilities
 
 import com.danchez.utilities.extensions.validateInput
 import com.google.android.material.textfield.TextInputLayout
+import java.text.DecimalFormatSymbols
 import java.util.*
+
+val Char.Companion.DOT: Char get() = '.'
+val Char.Companion.COMMA: Char get() = ','
 
 /**
  * Returns a [Boolean] value depending of the inputs validations of [inputs]
@@ -36,4 +40,14 @@ fun getDateWithValues(year: Int, month: Int, date: Int, hour: Int = 0, minute: I
     val calendar = Calendar.getInstance()
     calendar.set(year, month, date, hour, minute)
     return calendar.time
+}
+
+/**
+ * Get [DecimalFormatSymbols] for format
+ */
+fun decimalFormatSymbols(decimalSeparator: Char = Char.DOT, groupingSeparator: Char = Char.COMMA): DecimalFormatSymbols {
+    return DecimalFormatSymbols().apply {
+        this.decimalSeparator = decimalSeparator
+        this.groupingSeparator = groupingSeparator
+    }
 }
